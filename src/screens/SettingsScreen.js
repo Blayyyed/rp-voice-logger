@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Switch, Picker } from 'react-native';
+import { View, Text, StyleSheet, Switch } from 'react-native';
+import { Picker } from '@react-native-picker/picker';
+
 
 export default function SettingsScreen() {
   const [pinLock, setPinLock] = useState(false);
