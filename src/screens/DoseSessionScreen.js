@@ -1,9 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, Alert } from 'react-native';
-import Voice from '@react-native-voice/voice';
+// import Voice from '@react-native-voice/voice';
 import { Audio } from 'expo-av';
 import * as Speech from 'expo-speech';
 import { v4 as uuidv4 } from 'react-native-uuid';
+
+const Voice = {
+  onSpeechResults: null,
+  onSpeechError: null,
+  start: async () => {},
+  stop: async () => {},
+  destroy: () => Promise.resolve(),
+  removeAllListeners: () => {}
+}
 import { executeSql } from '../database';
 
 // Helper to parse a recognised phrase into a dose entry object.
