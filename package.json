@@ -13,10 +13,12 @@
     "expo-av": "^13.2.1",
     "expo-speech": "^11.3.0",
     "expo-sqlite": "^11.4.0",
-    "@react-native-voice/voice": "^3.5.0",
-    "react": "^18.2.0",
+    
+    "ret": "^18.2.0",
     "react-native": "0.72.4",
     "react-native-uuid": "^2.0.1",
+        "@react-native-picker/picker": "2.4.10",
+        "@expo/vector-icons": "13.0.0",
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/native-stack": "^6.9.12",
     "@react-navigation/bottom-tabs": "^6.5.8"
