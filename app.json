@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "RP Voice Logger",
+    "name": "Rp Voice Logger",
     "slug": "rp-voice-logger",
     "version": "1.0.0",
     "orientation": "portrait",
-    "sdkVersion": "49.0.0",
+    "sdkVersion": "54.0.0",
     "platforms": ["ios", "android"],
     "icon": "./assets/icon.png",
     "splash": {
