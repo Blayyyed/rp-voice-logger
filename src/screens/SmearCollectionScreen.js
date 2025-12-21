@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'react-native-uuid';
 // import Voice from '@react-native-voice/voice';
 import { Audio } from 'expo-av';
 import * as Speech from 'expo-speech';
-import { executeSql } from '../database';
+ort { executeSql } from '../database';
 
 export default function SmearCollectionScreen({ navigation }) {
   const [sessionId, setSessionId] = useState(null);
