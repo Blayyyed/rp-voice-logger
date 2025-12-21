@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import { v4 as uuidv4 } from 'react-native-uuid';
-import Voice from '@react-native-voice/voice';
+// import Voice from '@react-native-voice/voice';
 import { Audio } from 'expo-av';
 import * as Speech from 'expo-speech';
 import { executeSql } from '../database';
