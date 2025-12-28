@@ -123,8 +123,13 @@ function parseDoseTranscript(text) {
   const numMatch = text.match(/([0-9]+(?:\.[0-9]+)?)/);
   if (numMatch) result.value = parseFloat(numMatch[1]);
   // Unit
-  if (/mrem/.test(t)) result.unit = 'mrem/hr';
-  else if (/r\b/.test(t)) result.unit = 'R/hr';
+  // If the transcript mentions mrem or variants like "mg" or "milligram",
+  // treat it as mrem/hr. This prevents misinterpretation of dose rate units.
+  if (/mrem/.test(t) || /\bmg\b/.test(t) || /\bmilligr?am(s)?\b/.test(t)) {
+    result.unit = 'mrem/hr';
+  } else if (/r\b/.test(t)) {
+    result.unit = 'R/hr';
+  }
   return result;
 }
 
