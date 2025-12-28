@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RP Voice Logger</title>
+  <!--
+    RP Voice Logger
+    ----------------
+    This PWA provides an offline‑first interface for radiation protection technicians to
+    capture dose and smear data via voice. It is designed for noisy, low/no‑signal
+    environments and works entirely on device. The UI here is intentionally kept
+    simple to accommodate gloved hands and small screens. More complex logic and
+    validation lives in app.js.
+  -->
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta name="theme-color" content="#0d6efd">
+  <link rel="manifest" href="manifest.webmanifest">
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 1rem;
+      background: #f5f5f5;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 0;
+    }
+    #home button {
+      display: block;
+      width: 100%;
+      max-width: 400px;
+      margin: 0.5rem auto;
+      padding: 1rem;
+      font-size: 1.2rem;
+      background: #0d6efd;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+    }
+    #home button:active {
+      background: #0b5ed7;
+    }
+    .hidden {
+      display: none;
+    }
+    .session-screen {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 0.5rem;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.25rem;
+      box-sizing: border-box;
+    }
+    #log {
+      margin-top: 1rem;
+    }
+    .entry {
+      border: 1px solid #ddd;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      background: #fafafa;
+      border-radius: 4px;
+    }
+    button.primary {
+      background: #0d6efd;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.25rem;
+      font-size: 1rem;
+      border-radius: 4px;
+    }
+    button.secondary {
+      background: #6c757d;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.25rem;
+      font-size: 1rem;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>RP Voice Logger</h1>
+  <!-- Home screen with entry points into the various modules -->
+  <div id="home">
+    <button id="doseBtn">Start Dose Session</button>
+    <button id="smearCollectBtn">Start Smear Collection</button>
+    <button id="smearCountBtn">Start Smear Counting</button>
+    <button id="reviewBtn">Review &amp; Export</button>
+    <button id="settingsBtn">Settings</button>
+  </div>
+  <!-- A placeholder for whichever session screen is currently active -->
+  <div id="sessionView" class="hidden"></div>
+  <script src="app.js"></script>
+  <script>
+    // Register the service worker so the PWA functions offline.
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').catch(function(err) {
+        console.error('Service worker registration failed:', err);
+      });
+    }
+  </script>
+</body>
+</html>
